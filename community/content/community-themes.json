@@ -485,5 +485,11 @@
     "mainColor": "oklch(72.0% 0.055 200.0 / 1)",
     "secondaryColor": "oklch(62.0% 0.095 320.0 / 1)",
     "name": "Karasu Black"
+  },
+  {
+    "id": "hanami-pink",
+    "backgroundColor": "oklch(92.0% 0.028 345.0 / 1)",
+    "mainColor": "oklch(70.0% 0.165 350.0 / 1)",
+    "secondaryColor": "oklch(78.0% 0.110 25.0 / 1)"
   }
 ]

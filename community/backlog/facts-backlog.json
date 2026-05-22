@@ -290,7 +290,7 @@
   {
     "id": 49,
     "fact": "The word 'amae' (甘え) describes depending on another's goodwill - a uniquely Japanese concept of presuming on someone's affection.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -386,7 +386,7 @@
   {
     "id": 65,
     "fact": "The word 'mottainai' (もったいない) expresses deep regret over waste - a concept that sparked modern recycling movements worldwide.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -962,7 +962,7 @@
   {
     "id": 161,
     "fact": "The concept 'doryoku' (努力) means hard work as a core value - success without effort is considered somehow lesser.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1046,7 +1046,7 @@
   {
     "id": 175,
     "fact": "There's a Japanese word 'waku-waku' (わくわく) for excited anticipation - the tingly feeling of looking forward to something.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1094,7 +1094,7 @@
   {
     "id": 183,
     "fact": "There's a Japanese word 'nakama' (仲間) for companions who are closer than friends but not quite family - a chosen tribe.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1142,7 +1142,7 @@
   {
     "id": 191,
     "fact": "There's a Japanese concept 'meisou' (瞑想) - meditation that focuses on emptying the mind rather than filling it.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1238,7 +1238,7 @@
   {
     "id": 207,
     "fact": "Japan’s mountainous terrain means about 70% of the country is forested.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1610,7 +1610,7 @@
   {
     "id": 269,
     "fact": "Japan has 'yukidaruma' (雪だるま) snowman festivals where entire parks fill with glowing snow lanterns.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1736,7 +1736,7 @@
   {
     "id": 290,
     "fact": "The term 'kigatsuku' (気がつく) means to notice or realize, and is often associated with considerate awareness.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1778,7 +1778,7 @@
   {
     "id": 297,
     "fact": "Japan’s 'eki-ben' (駅弁) are region-specific boxed meals sold at train stations, often featuring local specialties.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1802,7 +1802,7 @@
   {
     "id": 301,
     "fact": "Japan’s New Year custom 'hatsumode' (初詣) involves visiting a shrine or temple for the year’s first prayer.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
