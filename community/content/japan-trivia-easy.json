@@ -228,5 +228,22 @@
   "difficulty": "easy",
   "answers": ["Okonomiyaki", "Tempura", "Yakitori", "Sashimi"],
   "correctIndex": 0
+  },
+  {
+  "question": "What is the main ingredient in miso? (Community variation 56)",
+  "difficulty": "easy",
+  "answers": [ "Fermented soybeans",  "Rice flour",  "Buckwheat", "Seaweed"],
+  "correctIndex": 0
+  },
+  {
+    "question": "Which ocean borders Japan to the east?",
+    "difficulty": "easy",
+    "answers": [
+      "Atlantic Ocean",
+      "Indian Ocean",
+      "Pacific Ocean",
+      "Arctic Ocean"
+    ],
+    "correctIndex": 2
   }
 ]
