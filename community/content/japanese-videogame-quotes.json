@@ -412,4 +412,11 @@
   "game": "Tales of the Abyss",
   "character": "Luke fon Fabre"
   }
+  {
+  "japanese": "あなたは実験体です。感情は計算に含まれていません。",
+  "romaji": "Anata wa jikkentai desu. Kanjou wa keisan ni fukumarete imasen.",
+  "english": "You are a test subject. Emotions are not part of the calculation.",
+  "game": "Portal",
+  "character": "GLaDOS"
+},
 ]
