@@ -757,5 +757,26 @@
     "Hina Matsuri"
   ],
   "correctIndex": 1
+},{
+  "question": "Which Japanese city is famous for its street food district, Dotonbori?",
+  "difficulty": "hard",
+  "answers": [
+    "Osaka",
+    "Niigata",
+    "Kagoshima",
+    "Takayama"
+  ],
+  "correctIndex": 0
+},
+  {
+  "question": "Which Japanese castle is known for its black exterior and nickname 'Crow Castle'?",
+  "difficulty": "hard",
+  "answers": [
+    "Matsumoto Castle",
+    "Osaka Castle",
+    "Nijo Castle",
+    "Himeji Castle"
+  ],
+  "correctIndex": 0
 }
 ]

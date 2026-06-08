@@ -12,6 +12,18 @@ import {
 } from '@/shared/infra/server/apiCache';
 import { captureServerEvent } from '@/shared/analytics/posthog-server';
 
+// Per-route kill switch for translate-route PostHog events.
+// Currently disabled to stay under the PostHog free plan event quota.
+// Flip to `true` to re-enable all events emitted by this route.
+// Other server-side PostHog callers are unaffected.
+const TRANSLATE_ANALYTICS_ENABLED = false;
+const trackTranslate: (
+  event: string,
+  properties?: Record<string, unknown>,
+) => void = TRANSLATE_ANALYTICS_ENABLED
+  ? captureServerEvent
+  : () => {};
+
 // Simple in-memory cache for translations (reduces API calls)
 const translationCache = new Map<
   string,
@@ -406,7 +418,7 @@ export async function POST(request: NextRequest) {
 
     // Validate input
     if (!text || typeof text !== 'string') {
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'invalid_input',
         status: 400,
         char_count: 0,
@@ -423,7 +435,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (text.trim().length === 0) {
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'invalid_input',
         status: 400,
         source: sourceLanguage,
@@ -442,7 +454,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (text.length > 5000) {
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'invalid_input',
         status: 400,
         source: sourceLanguage,
@@ -466,7 +478,7 @@ export async function POST(request: NextRequest) {
       !validLanguages.includes(sourceLanguage) ||
       !validLanguages.includes(targetLanguage)
     ) {
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'invalid_input',
         status: 400,
         source: sourceLanguage,
@@ -485,7 +497,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (sourceLanguage === targetLanguage) {
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'invalid_input',
         status: 400,
         source: sourceLanguage,
@@ -516,7 +528,7 @@ export async function POST(request: NextRequest) {
     }>('translate', cacheKey);
     if (redisCached) {
       cacheHits++;
-      captureServerEvent('translate_cache_hit', {
+      trackTranslate('translate_cache_hit', {
         cache_layer: 'redis',
         source: sourceLanguage,
         target: targetLanguage,
@@ -535,7 +547,7 @@ export async function POST(request: NextRequest) {
     const cached = translationCache.get(cacheKey);
     if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
       cacheHits++;
-      captureServerEvent('translate_cache_hit', {
+      trackTranslate('translate_cache_hit', {
         cache_layer: 'memory',
         source: sourceLanguage,
         target: targetLanguage,
@@ -553,7 +565,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (isLikelyBot(request)) {
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'bot',
         status: 429,
         source: sourceLanguage,
@@ -576,7 +588,7 @@ export async function POST(request: NextRequest) {
       requestContext === 'url-prefill' &&
       normalizedText.length > URL_AUTOTRANSLATE_CHAR_LIMIT
     ) {
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'verification_required',
         status: 403,
         source: sourceLanguage,
@@ -612,7 +624,7 @@ export async function POST(request: NextRequest) {
         message = `Too many requests. Please wait ${rateLimitResult.retryAfter} seconds.`;
       }
 
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'rate_limit',
         status: 429,
         source: sourceLanguage,
@@ -647,7 +659,7 @@ export async function POST(request: NextRequest) {
           ? 'Service is experiencing high demand. Please try again later.'
           : 'Daily translation limit reached. Please try again later.';
 
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'usage_limit',
         status: 429,
         source: sourceLanguage,
@@ -673,7 +685,7 @@ export async function POST(request: NextRequest) {
       process.env.TURNSTILE_SECRET_KEY &&
       process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
     ) {
-      captureServerEvent('translate_rejected', {
+      trackTranslate('translate_rejected', {
         reason: 'verification_required',
         status: 403,
         source: sourceLanguage,
@@ -712,7 +724,7 @@ export async function POST(request: NextRequest) {
           ? 'rate_limit'
           : 'api';
 
-      captureServerEvent('translate_provider_error', {
+      trackTranslate('translate_provider_error', {
         error_category: errorCategory,
         status,
         latency_ms: Date.now() - startTime,
@@ -801,7 +813,7 @@ export async function POST(request: NextRequest) {
 
     cleanupCache();
 
-    captureServerEvent('translate_success', {
+    trackTranslate('translate_success', {
       provider: translation.provider,
       latency_ms: Date.now() - startTime,
       source: sourceLanguage,
@@ -833,7 +845,7 @@ export async function POST(request: NextRequest) {
     const isNetworkError =
       error instanceof TypeError && error.message.includes('fetch');
 
-    captureServerEvent('translate_unhandled_error', {
+    trackTranslate('translate_unhandled_error', {
       error_category: isNetworkError ? 'network' : 'unknown',
       status: isNetworkError ? 503 : 500,
       latency_ms: Date.now() - startTime,

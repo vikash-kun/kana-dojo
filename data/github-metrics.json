@@ -2000,5 +2000,27 @@
       "forks": 5,
       "contributors": 4
     }
+  },
+  {
+    "collectedAt": "2026-06-07T23:00:42.340Z",
+    "stars": 2586,
+    "forks": 2225,
+    "contributors": 2036,
+    "diff": {
+      "stars": 7,
+      "forks": 13,
+      "contributors": 12
+    }
+  },
+  {
+    "collectedAt": "2026-06-08T11:00:53.028Z",
+    "stars": 2586,
+    "forks": 2226,
+    "contributors": 2037,
+    "diff": {
+      "stars": 0,
+      "forks": 1,
+      "contributors": 1
+    }
   }
 ]

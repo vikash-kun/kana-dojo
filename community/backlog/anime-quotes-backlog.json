@@ -636,7 +636,7 @@
     "english": "I'm going to stop being human, JoJo! (alt wording 12)",
     "anime": "JoJo's Bizarre Adventure: Phantom Blood",
     "character": "Dio Brando",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -1396,7 +1396,7 @@
     "english": "I'll exterminate them! Every last one from this world! (alt wording 36) (alt wording 88)",
     "anime": "Attack on Titan",
     "character": "Eren Yeager",
-    "issued": true,
+    "issued": false,
     "completed": false
   },
   {
