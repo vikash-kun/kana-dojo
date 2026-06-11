@@ -66,12 +66,6 @@
     "meaning": "Never give up"
   },
   {
-    "japanese": "二度あることは三度ある",
-    "romaji": "Nido aru koto wa sando aru",
-    "english": "What happens twice will happen a third time",
-    "meaning": "Patterns tend to repeat"
-  },
-  {
     "japanese": "石の上にも三年",
     "romaji": "Ishi no ue ni mo sannen",
     "english": "Three years on a stone",
@@ -120,9 +114,15 @@
     "meaning": "What's done is done and cannot be changed."
   },
   {
-  "japanese": "二兎を追う者は一兎をも得ず",
-  "romaji": "Ni to wo ou mono wa itto wo mo ezu",
-  "english": "One who chases two rabbits catches neither",
-  "meaning": "Focus on one thing at a time"
+    "japanese": "二兎を追う者は一兎をも得ず",
+    "romaji": "Ni to wo ou mono wa itto wo mo ezu",
+    "english": "One who chases two rabbits catches neither",
+    "meaning": "Focus on one thing at a time"
+  },
+  {
+    "japanese": "二度あることは三度ある",
+    "romaji": "Nido aru koto wa sando aru",
+    "english": "What happens twice will happen a third time",
+    "meaning": "Patterns tend to repeat"
   }
 ]
