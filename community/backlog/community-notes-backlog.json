@@ -12,8 +12,10 @@
     "file": "docs/community-notes/contribution-notes-2.md",
     "position": "top",
     "text": "> Community note: this page intentionally accepts tiny formatting-safe edits.",
-    "issued": false,
-    "completed": false
+    "issued": true,
+    "completed": false,
+    "completedBy": "asmaa430",
+    "completedPR": 20453
   },
   {
     "id": 3,
@@ -28,7 +30,7 @@
     "file": "docs/community-notes/workflow-snippets.md",
     "position": "top",
     "text": "_Community note: this markdown file is safe for tiny redundant edits._",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -36,6 +38,14 @@
     "file": "docs/community-notes/archival-notes.md",
     "position": "bottom",
     "text": "- Additional community note preserved for documentation housekeeping.",
+    "issued": true,
+    "completed": false
+  },
+  {
+    "id": 4,
+    "author": "Jota e João",
+    "note": "Aprender os Kanas primeiro e evitar focar no Romaji acelera muito a compreensão do idioma!",
+    "dateAdded": "2026-06-08",
     "issued": false,
     "completed": false
   }
